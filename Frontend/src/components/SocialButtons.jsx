@@ -22,7 +22,7 @@ function SocialButtons() {
             </button>
             </div>
     );
-}
+};
 
 
 export default SocialButtons;
