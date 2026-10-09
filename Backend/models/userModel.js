@@ -1,0 +1,123 @@
+import mongoose from 'mongoose';
+
+// Schema
+const userSchema = new mongoose.Schema(
+  {
+    userName: {
+      type: String,
+      required: [true, 'user name is required'],
+    },
+
+    email: {
+      type: String,
+      required: [true, 'email is required'],
+      unique: true,
+    },
+
+    provider: {
+      type: String,
+      default: 'google',
+    },
+
+    googleId: {
+      type: String,
+    },
+  },
+  { timestamps: true }
+);
+
+const User = mongoose.model('user', userSchema);
+
+export default User;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const mongoose = require('mongoose')
+
+// //schema
+// const userSchema = new mongoose.Schema({
+//     name:{
+//         type: String,
+//         required:[true, 'user name is required']
+//     },
+//     email:{
+//         type: String,
+//         required:[true, 'email is required'],
+//         unique:true
+
+//     },
+
+//     provider:{
+//         type:String,
+//         default:"google"
+//     },
+
+//     googleId:{
+//         type:String,
+//     },
+
+//     // password:{
+//     //     type: String,
+//     //     required:[true, 'password is required']
+
+//     // },
+
+//     // address:{
+//     //     type:Array,
+//     // },
+
+//     // phone:{
+//     //     type:String,
+//     //     required:[true, 'phone number is required']
+//     // },
+//     // usertype:{
+//     //     type:String,
+//     //     required:[true, 'user type is required'],
+//     //     default:'client',
+//     //     enum:['client', 'admin', 'vendor', 'driver']
+//     // },
+//     // profile:{
+//     //     type:String,
+//     //     default:'https://static.vecteezy.com/system/resources/previews/036/280/651/original/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-illustration-vector.jpg'
+//     // },
+//     // answer:{
+//     //     type:String,
+//     //     required:[true,"Answer is required"]
+//     // }
+// },{timestamps:true})
+
+// module.exports = mongoose.model('user',userSchema)
