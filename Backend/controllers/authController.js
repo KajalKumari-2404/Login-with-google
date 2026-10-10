@@ -38,12 +38,18 @@ const googleLogin = async (req, res) => {
     let user = await User.findOne({ email });
 
     // Create new user if not found
+    // if (!user) {
+    //   user = await User.create({
+    //     name: name || "Google User",
+    //     email,
+    //     googleId: sub,
+    //   });
     if (!user) {
-      user = await User.create({
-        name: name || "Google User",
-        email,
-        googleId: sub,
-      });
+  user = await User.create({
+    userName: name || "Google User",
+    email,
+    googleId: sub,
+  });
     } else if (user.googleId && user.googleId !== sub) {
       return res.status(401).json({
         success: false,
